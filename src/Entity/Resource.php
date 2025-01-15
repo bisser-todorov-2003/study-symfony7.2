@@ -33,7 +33,7 @@ class Resource
     private ?int $size = null;
 
     #[ORM\ManyToOne(inversedBy: 'resources')]
-    #[ORM\JoinColumn(name: 'resource', referencedColumnName: 'id')]
+    #[ORM\JoinColumn(name: 'subject', referencedColumnName: 'id')]
     private ?Topic $topic = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
