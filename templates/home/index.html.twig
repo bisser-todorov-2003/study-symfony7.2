@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for resource in resources %}
+        <li>
+            {{ resource.name }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
