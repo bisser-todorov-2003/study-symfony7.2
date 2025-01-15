@@ -1,3 +1,63 @@
+html {
+    margin: 0;
+    padding: 0;
+}
 body {
-    background-color: skyblue;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 70px;
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+    font-family: "Droid Sans Mono Slashed", sans-serif;
+    font-size: 0.9em;
+    display: inline-block;
+    padding-left: 20px;
+}
+nav {
+    width: max-content;
+    float: right;
+    margin-right: 10%;
+    margin-top: 30px;
+}
+
+form {
+    border: 1px solid black;
+    width: max-content;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    margin-bottom: 10px;
+}
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+button{
+    background-color: gray;
+    color: white;
+    margin-top: 20px;
+}
+ul {
+    font-family: sans-serif;
+}
+li {
+    margin-bottom: 8px;
+}
+
+article {
+    margin-left: 5%;
+    margin-right: 5%;
 }

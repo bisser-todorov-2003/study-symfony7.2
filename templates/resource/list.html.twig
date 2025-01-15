@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello TopicController!{% endblock %}
+
+{% block body %}
+    <a href="/resource/add"> NEW </a>
+    <ul>
+    {% for resource in resources %}
+        <li> {{ resource.name }} </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TopicController!{% endblock %}
+
+{% block body %}
+
+    <a href="/topic/add"> NEW </a>
+    <ul>
+        {% for item in topics %}
+            <li> <a href="/topic/list/{{ item.id }}"> {{ item.name }} </a>  <a href="/topic/delete/{{ item.id }}"> DELETE </a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
