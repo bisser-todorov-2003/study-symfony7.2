@@ -21,7 +21,7 @@ class ResourceRepository extends ServiceEntityRepository
         $startDate = new \DateTime($startYear . '-01-01');
         $finishDate = new \DateTime((string)(((int)$startYear + 1)) . '-01-01');
         return $this->createQueryBuilder('r')
-            ->andWhere('(r.startDate > :start AND r.startDate < :finish) OR (r.startDate IS NULL)')
+            ->andWhere('(r.startDate > :start AND r.startDate < :finish AND r.finishDate IS NULL) OR (r.startDate IS NULL)')
             ->setParameter('start', $startDate)
             ->setParameter('finish', $finishDate)
             ->getQuery()
