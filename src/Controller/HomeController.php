@@ -17,10 +17,25 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        $resources = $this->resourceManager->inProgressByYear();
+        if (empty($year)) {
+            $now = new \DateTime();
+            $year = $now->format('Y');
+        }
 
-        return $this->render('home/index.html.twig', [
-            'resources' => $resources,
+        $previousYear = (string)((int) $year - 1);
+        $progress = $this->resourceManager->inProgressByYear($year);
+        $finish = $this->resourceManager->finishedByYear($year);
+
+        $previousProgress = $this->resourceManager->inProgressByYear($previousYear);
+        $previousFinish = $this->resourceManager->finishedByYear($previousYear);
+
+        return $this->render('/home/index.html.twig', [
+            'progress' => $progress,
+            'finish' => $finish,
+            'year' => $year,
+            'previousYear' => $previousYear,
+            'previousProgress' => $previousProgress,
+            'previousFinish' => $previousFinish
         ]);
     }
 

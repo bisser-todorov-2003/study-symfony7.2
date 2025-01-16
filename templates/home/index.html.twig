@@ -3,11 +3,33 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
+
+    <h2> Started {{ year }} and unfinished </h2>
     <ul>
-        {% for resource in resources %}
-        <li>
-            {{ resource.name }}
-        </li>
+        {% for resource in progress %}
+            <li> {{ resource.name }} </li>
         {% endfor %}
     </ul>
+
+    <h2> Finished {{ year }}</h2>
+    <ul>
+        {% for resource in finish %}
+            <li> {{ resource.name }} </li>
+        {% endfor %}
+    </ul>
+    
+    <h2> Started {{ previousYear }} and unfinished </h2>
+    <ul>
+        {% for resource in previousProgress %}
+            <li> {{ resource.name }} </li>
+        {% endfor %}
+    </ul>
+
+    <h2> Finished {{ previousYear }}</h2>
+    <ul>
+        {% for resource in previousFinish %}
+            <li> {{ resource.name }} </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

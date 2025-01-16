@@ -18,7 +18,7 @@ class ResourceManager
         return $this->entityManager->getRepository(Resource::class)->findByStarted($year);
     }
 
-    public function finishedByYear(): array
+    public function finishedByYear(?string $year = null): array
     {
 
         if (empty($year)) {
