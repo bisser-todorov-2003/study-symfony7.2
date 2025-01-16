@@ -4,15 +4,20 @@ namespace App\Controller;
 
 use App\Entity\Resource;
 use App\Form\ResourceType;
+use App\Service\Manager\ResourceManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class ResourceController extends AbstractController
 {
-    public function __construct(private readonly EntityManagerInterface $em)
+    public function __construct(
+        private readonly EntityManagerInterface $em,
+        private readonly ResourceManager $resourceManager,
+    )
     {}
 
     #[Route('/resource', name: 'app_resource')]
@@ -38,13 +43,21 @@ class ResourceController extends AbstractController
         ]);
     }
 
-    #[Route('/resource/list', name: 'app_resource_edit')]
-    public function list()
+    #[Route('/resource/list/{year}', name: 'app_resource_edit')]
+    public function list(string $year = null): Response
     {
-        $all = $this->em->getRepository(Resource::class)->findAll();
+        if (empty($year)) {
+            $now = new \DateTime();
+            $year = $now->format('Y');
+        }
+
+        $progress = $this->resourceManager->inProgressByYear($year);
+        $finish = $this->resourceManager->finishedByYear($year);
 
         return $this->render('resource/list.html.twig', [
-            'resources' => $all,
+            'progress' => $progress,
+            'finish' => $finish,
+            'year' => $year,
         ]);
     }
 }

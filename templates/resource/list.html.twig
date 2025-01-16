@@ -3,9 +3,19 @@
 
 {% block body %}
     <a href="/resource/add"> NEW </a>
+
+    <h2> Started {{ year }} and unfinished </h2>
     <ul>
-    {% for resource in resources %}
+    {% for resource in progress %}
         <li> {{ resource.name }} </li>
     {% endfor %}
     </ul>
+
+    <h2> Finished {{ year }}</h2>
+    <ul>
+        {% for resource in finish %}
+            <li> {{ resource.name }} </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

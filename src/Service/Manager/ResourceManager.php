@@ -9,23 +9,26 @@ class ResourceManager
 {
     public function __construct(private readonly EntityManagerInterface $entityManager)
     {}
-    public function inProgressByYear(string $year = '2025'): array
+    public function inProgressByYear(?string $year = null): array
     {
-        $resources = $this->entityManager->getRepository(Resource::class)->findBy(['finishDate' => null]);
-        $currentYear = new \DateTime($year.'-01-01');
-        $result = [];
-
-        foreach ($resources as $resource) {
-            if ($currentYear < $resource->getStartDate()) {
-                $result[] = $resource;
-            }
+        if (empty($year)) {
+            $now = new \DateTime();
+            $year = $now->format('Y');
         }
-
-        return $result;
-
+        return $this->entityManager->getRepository(Resource::class)->findByStarted($year);
     }
 
-    public function currentYearFinished(): array
+    public function finishedByYear(): array
+    {
+
+        if (empty($year)) {
+            $now = new \DateTime();
+            $year = $now->format('Y');
+        }
+        return $this->entityManager->getRepository(Resource::class)->findByFinished($year);
+    }
+
+    public function allByYear(string $year = '2025'): array
     {
 
     }

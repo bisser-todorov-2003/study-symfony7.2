@@ -16,28 +16,29 @@ class ResourceRepository extends ServiceEntityRepository
         parent::__construct($registry, Resource::class);
     }
 
-    //    /**
-    //     * @return Resource[] Returns an array of Resource objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('r')
-    //            ->andWhere('r.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('r.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function findByStarted(string $startYear): array
+    {
+        $startDate = new \DateTime($startYear . '-01-01');
+        $finishDate = new \DateTime((string)(((int)$startYear + 1)) . '-01-01');
+        return $this->createQueryBuilder('r')
+            ->andWhere('(r.startDate > :start AND r.startDate < :finish) OR (r.startDate IS NULL)')
+            ->setParameter('start', $startDate)
+            ->setParameter('finish', $finishDate)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
-    //    public function findOneBySomeField($value): ?Resource
-    //    {
-    //        return $this->createQueryBuilder('r')
-    //            ->andWhere('r.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function findByFinished(string $startYear): array
+    {
+        $startDate = new \DateTime($startYear . '-01-01');
+        $finishDate = new \DateTime((string)(((int)$startYear + 1)) . '-01-01');
+        return $this->createQueryBuilder('r')
+            ->andWhere('(r.finishDate > :start AND r.finishDate < :finish)')
+            ->setParameter('start', $startDate)
+            ->setParameter('finish', $finishDate)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
