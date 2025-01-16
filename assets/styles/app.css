@@ -63,7 +63,7 @@ article {
 }
 ul li {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 2fr 1fr 1fr;
 }
 
 ul  li  span:nth-of-type(2) {
