@@ -62,10 +62,11 @@ article {
     margin-left: 10%;
     margin-right: 10%;
 }
+
 ul li {
     display: grid;
     grid-template-columns: 4fr 1fr 1fr 1fr;
-    background-color: #EFEFEF;
+    background-color: #EEEEEF;
 }
 
 ul  li  span:nth-of-type(2) {
