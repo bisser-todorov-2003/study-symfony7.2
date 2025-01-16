@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ResourceController extends AbstractController
 {
@@ -20,6 +21,7 @@ class ResourceController extends AbstractController
     )
     {}
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/resource', name: 'app_resource')]
     public function index(): Response
     {
@@ -28,6 +30,7 @@ class ResourceController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/resource/add', name: 'app_resource')]
     public function add(Request $request): Response
     {
@@ -43,6 +46,7 @@ class ResourceController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/resource/list/{year}', name: 'app_resource_edit')]
     public function list(string $year = null): Response
     {

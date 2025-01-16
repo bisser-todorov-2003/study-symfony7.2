@@ -7,7 +7,7 @@
     <h2> Started {{ year }} and unfinished </h2>
     <ul>
         {% for resource in progress %}
-            <li> {{ resource.name }} </li>
+            <li> <span>{{ resource.name }}</span> <span> {{ resource.progress }}</span></li>
         {% endfor %}
     </ul>
 

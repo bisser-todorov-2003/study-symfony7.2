@@ -14,7 +14,7 @@
     <h2> Finished {{ year }}</h2>
     <ul>
         {% for resource in finish %}
-            <li> {{ resource.name }} </li>
+            <li> <span> {{ resource.name }}</span> <span> {{ resource.progress }}</span> </li>
         {% endfor %}
     </ul>
 

@@ -61,3 +61,7 @@ article {
     margin-left: 5%;
     margin-right: 5%;
 }
+ul li {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
