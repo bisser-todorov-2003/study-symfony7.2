@@ -65,12 +65,13 @@ article {
 
 ul li {
     display: grid;
-    grid-template-columns: 6fr 2fr 1fr 1fr;
+    grid-template-columns: 8fr 4fr 1fr 1fr;
     background-color: #DDD;
 }
 
 ul  li  span:nth-of-type(2) {
     text-align: right;
+    margin-left: 10px;
 }
 
 ul  li  span:nth-of-type(3) {
@@ -79,12 +80,17 @@ ul  li  span:nth-of-type(3) {
 
 ul  li  span:nth-of-type(3) a:link {
     color: darkgray;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 ul  li  span:nth-of-type(4) {
     text-align: right;
     color: darkgray;
+}
+
+ul  li  span:nth-of-type(4) a:link {
+    color: darkgray;
+    font-size: 1.2em;
 }
 
 h2 {
