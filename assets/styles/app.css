@@ -54,7 +54,8 @@ ul {
     font-family: sans-serif;
 }
 li {
-    padding: 15px;
+    padding: 10px;
+    margin-bottom: 5px;
 }
 
 article {
@@ -64,7 +65,7 @@ article {
 ul li {
     display: grid;
     grid-template-columns: 4fr 1fr 1fr 1fr;
-    background-color: #999;
+    background-color: #EFEFEF;
 }
 
 ul  li  span:nth-of-type(2) {
