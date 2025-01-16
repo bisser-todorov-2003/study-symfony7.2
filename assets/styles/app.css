@@ -66,7 +66,7 @@ article {
 ul li {
     display: grid;
     grid-template-columns: 4fr 1fr 1fr 1fr;
-    background-color: #EEEEEF;
+    background-color: #DDD;
 }
 
 ul  li  span:nth-of-type(2) {
