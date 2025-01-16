@@ -69,3 +69,11 @@ ul li {
 ul  li  span:nth-of-type(2) {
     text-align: right;
 }
+
+ul  li  span:nth-of-type(3) {
+    text-align: center;
+}
+
+ul  li  span:nth-of-type(4) {
+    text-align: center;
+}
