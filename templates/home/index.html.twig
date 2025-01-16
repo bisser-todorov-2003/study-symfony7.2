@@ -7,28 +7,46 @@
     <h2> Started {{ year }} and unfinished </h2>
     <ul>
         {% for resource in progress %}
-            <li> <span>{{ resource.name }}</span> <span> {{ resource.progress }}%</span><span> &#9998;</span> <span> 🗑 </span></li>
+            <li>
+                <span>{{ resource.name }}</span>
+                <span> {{ resource.progress }}%</span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> &#9998; </a> </span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> 🗑 </a></span></li>
         {% endfor %}
     </ul>
 
     <h2> Finished {{ year }}</h2>
     <ul>
         {% for resource in finish %}
-            <li><span>{{ resource.name }}</span> <span> {{ resource.progress }}%</span><span> edit </span> <span> delete</span></li>
+            <li>
+                <span>{{ resource.name }}</span>
+                <span> {{ resource.progress }}%</span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> &#9998; </a> </span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> 🗑 </a></span></li>
         {% endfor %}
     </ul>
 
     <h2> Started {{ previousYear }} and unfinished </h2>
     <ul>
         {% for resource in previousProgress %}
-            <li><span>{{ resource.name }}</span> <span> {{ resource.progress }}%</span><span> edit </span> <span> delete</span></li>
+            <li>
+                <span>{{ resource.name }}</span>
+                <span> {{ resource.progress }}%</span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> &#9998; </a> </span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> 🗑 </a></span></li>
+            </li>
         {% endfor %}
     </ul>
 
     <h2> Finished {{ previousYear }}</h2>
     <ul>
         {% for resource in previousFinish %}
-            <li><span>{{ resource.name }}</span> <span> {{ resource.progress }}%</span><span> edit </span> <span> delete</span></li>
+            <li>
+                <span>{{ resource.name }}</span>
+                <span> {{ resource.progress }}%</span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> &#9998; </a> </span>
+                <span> <a href="/resource/edit/{{ resource.id }}"> 🗑 </a></span></li>
+            </li>
         {% endfor %}
     </ul>
 
