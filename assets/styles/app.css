@@ -58,10 +58,14 @@ li {
 }
 
 article {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 ul li {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+ul  li  span:nth-of-type(2) {
+    text-align: right;
 }
