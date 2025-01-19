@@ -18,6 +18,7 @@ header {
 h2 {
     padding-left: 0;
     margin-left: 0;
+    border: 1px solid red;
 }
 
 a:link, a:visited {
