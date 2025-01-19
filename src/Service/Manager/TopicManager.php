@@ -37,7 +37,7 @@ class TopicManager
         $resources = $topic->getResources();
 
 if (!empty($resources->toArray())) {
-    dd($resources);
+    dump($resources);
 }
         $children = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $topic->getId()]);
         dump($children);
@@ -45,7 +45,8 @@ if (!empty($resources->toArray())) {
             return $hours;
         }
         foreach ($children as $child) {
-           // $hours += $this->calculateTime($child);
+            $hours += $this->calculateTime($child);
+            dump($hours);
         }
         return $hours;
     }
