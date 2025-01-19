@@ -72,9 +72,10 @@ article {
 
 ul li {
     display: grid;
+    margin-bottom: 10px;
     grid-template-columns: 10fr 2fr;
     background-color: #DDD;
-    border: 1px solid green;
+    border: 1px solid darkgray;
     margin-left: 0;
     padding-left: 0;
 }
