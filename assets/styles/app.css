@@ -15,7 +15,7 @@ header {
     margin-bottom: 20px;
 }
 
-a:link, a:visited {
+nav a:link, nav a:visited {
     text-decoration: none;
     color: black;
     font-family: "Droid Sans Mono Slashed", sans-serif;
