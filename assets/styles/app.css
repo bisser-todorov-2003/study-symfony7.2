@@ -2,6 +2,7 @@ html {
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: white;
     margin: 0;
@@ -67,7 +68,6 @@ article {
     margin-left: 10%;
     margin-right: 10%;
     padding: 0;
-    border: 1px solid red;
 }
 
 ul li {
@@ -75,19 +75,13 @@ ul li {
     grid-template-columns: 10fr 2fr;
     background-color: #DDD;
     border: 1px solid green;
-
     margin-left: 0;
     padding-left: 0;
-
 }
-
 
 ul  li  span:nth-of-type(2) {
     text-align: right;
 }
-
-
-
 
 h2 {
     font-family: "Droid Sans Mono Slashed", sans-serif;
