@@ -109,4 +109,5 @@ ul.resource_list li {
 ul li.head {
     background-color: darkgray;
     color: white;
+    border: 1px solid black;
 }
