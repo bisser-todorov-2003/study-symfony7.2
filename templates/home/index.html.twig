@@ -1,10 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
-
 {% block body %}
-
-    <h2> Started {{ year }} and unfinished </h2>
+    <h2> Started {{ year }} and unfinished  </h2>
     <ul>
         {% for resource in progress %}
             <li>
@@ -13,7 +10,6 @@
             </li>
         {% endfor %}
     </ul>
-
     <h2> Finished {{ year }}</h2>
     <ul>
         {% for resource in finish %}
@@ -43,5 +39,4 @@
             </li>
         {% endfor %}
     </ul>
-
 {% endblock %}
