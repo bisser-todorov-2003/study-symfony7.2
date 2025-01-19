@@ -114,5 +114,6 @@ ul li.head {
 
 button.single_button {
     padding: 5px;
-    background-color: gray;
+    background-color: lightgray;
+    float: right;
 }
