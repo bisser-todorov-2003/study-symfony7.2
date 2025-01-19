@@ -36,7 +36,6 @@ class TopicController extends AbstractController
     public function list(int $parent): Response
     {
         $topics = $this->topicManager->getTopicsByParentId($parent);
-        dd($topics);
         return $this->render('topic/index.html.twig', [
             'topics' => $topics,
         ]);
