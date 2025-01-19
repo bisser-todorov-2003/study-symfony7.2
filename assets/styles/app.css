@@ -99,3 +99,8 @@ h2 {
     margin-top: 35px;
     padding-left: 0;
 }
+
+
+ul.resource_list li {
+    color: red;
+}
