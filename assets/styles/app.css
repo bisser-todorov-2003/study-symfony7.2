@@ -100,9 +100,13 @@ h2 {
     padding-left: 0;
 }
 
-
 ul.resource_list li {
     background-color: white;
     border: none;
     border-bottom: 1px dotted gray;
+}
+
+ul li.head {
+    background-color: darkgray;
+    color: white;
 }
