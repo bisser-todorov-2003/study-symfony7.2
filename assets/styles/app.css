@@ -25,10 +25,12 @@ a:link, a:visited {
 }
 
 nav {
+    display: grid;
+    grid-template-columns: 4fr 2fr 1fr;
     width: max-content;
     float: right;
     margin-right: 10%;
-    margin-top: 30px;
+
 }
 
 nav a:link, nav a:visited {
@@ -110,4 +112,25 @@ ul li.head {
     background-color: darkgray;
     color: white;
     border: 1px solid black;
+}
+
+div.menu {
+    margin-top: 30px;
+}
+
+div.add_buttons {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-right: 30px;
+    font-family: "Droid Sans Mono Slashed", sans-serif;
+    color: gray;
+    font-weight: bold;
+    color: darkgray;
+    padding-top: 30px;
+    height: 40px;
+    background-color: lightgray;
+}
+div.login {
+    display: inline-block;
 }
