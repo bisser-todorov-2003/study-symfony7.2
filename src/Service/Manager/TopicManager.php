@@ -33,7 +33,17 @@ class TopicManager
 
     private function calculateTime(Topic $topic): int
     {
+        $hours = 0;
+        $resources = $topic->getResources();
+        dump($resources);
+
         $children = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $topic->getId()]);
-        dd($children);
+        if (empty($children)) {
+            return $hours;
+        }
+        foreach ($children as $child) {
+            $hours += $this->calculateTime($child);
+        }
+        return $hours;
     }
 }
