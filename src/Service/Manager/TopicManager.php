@@ -27,7 +27,7 @@ class TopicManager
             $dto->setId($topic->getId());
             $dto->setName($topic->getName());
             $time = $this->calculateTime($topic);
-            $dto->setDuration($time);
+            $dto->setDuration((int) ($time/60));
             $result[] = $dto;
         }
         return $result;
