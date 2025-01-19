@@ -117,4 +117,5 @@ button.single_button {
     background-color: lightgray;
     float: right;
     clear: both;
+    display: block;
 }
