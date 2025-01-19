@@ -4,8 +4,12 @@
 
 {% block body %}
 
-    <a href="/topic/add"> NEW </a>
+    <button> <a href="/topic/add"> NEW </a> </button>
     <ul>
+            <li>
+                <span>  Title </span>
+                <span> Hours </span>
+            </li>
         {% for item in topics %}
             <li>
                 <span> <a href="/topic/list/{{ item.id }}"> {{ item.name }} </a> </span>
