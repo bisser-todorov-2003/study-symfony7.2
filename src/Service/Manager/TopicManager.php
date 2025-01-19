@@ -38,6 +38,7 @@ class TopicManager
         dump($resources);
 
         $children = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $topic->getId()]);
+        dump($children);
         if (empty($children)) {
             return $hours;
         }
