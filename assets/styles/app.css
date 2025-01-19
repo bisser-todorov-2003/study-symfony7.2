@@ -102,5 +102,7 @@ h2 {
 
 
 ul.resource_list li {
-    color: red;
+    background-color: white;
+    border: none;
+    border-bottom: 1px dotted gray;
 }
