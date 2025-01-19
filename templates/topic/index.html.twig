@@ -5,7 +5,7 @@
 {% block body %}
 
     <a href="/topic/add"> NEW </a>
-    <ul class="resource_list">
+    <ul>
         {% for item in topics %}
             <li>
                 <span> <a href="/topic/list/{{ item.id }}"> {{ item.name }} </a> </span>

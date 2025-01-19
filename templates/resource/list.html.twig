@@ -5,14 +5,14 @@
     <a href="/resource/add"> NEW </a>
 
     <h2> Started {{ year }} and unfinished </h2>
-    <ul>
+    <ul  class="resource_list">
     {% for resource in progress %}
         <li> {{ resource.name }} </li>
     {% endfor %}
     </ul>
 
     <h2> Finished {{ year }}</h2>
-    <ul>
+    <ul  class="resource_list">
         {% for resource in finish %}
             <li> <span> {{ resource.name }}</span> <span> {{ resource.progress }}</span> </li>
         {% endfor %}
