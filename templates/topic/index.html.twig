@@ -6,15 +6,11 @@
 
     <button> <a href="/topic/add"> NEW </a> </button>
     <ul>
-            <li class="head">
-                <span>  Title </span>
-                <span> Hours </span>
-            </li>
         {% for item in topics %}
-            <li>
-                <span> <a href="/topic/list/{{ item.id }}"> {{ item.name }} </a> </span>
-                <span> {{ item.duration }} hours </span>
-            </li>
+        <li>
+            <span> <a href="/topic/list/{{ item.id }}"> {{ item.name }} </a> </span>
+            <span> {{ item.duration }} hours </span>
+        </li>
         {% endfor %}
     </ul>
 
