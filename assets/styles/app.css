@@ -116,4 +116,5 @@ button.single_button {
     padding: 5px;
     background-color: lightgray;
     float: right;
+    clear: both;
 }
