@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Topic;
 use App\Form\TopicType;
+use App\Service\Manager\TopicManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +14,10 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class TopicController extends AbstractController
 {
-    public function __construct(private readonly EntityManagerInterface $entityManager)
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager,
+        private readonly TopicManager $topicManager,
+    )
     {}
 
     #[Route('/topic', name: 'app_topic')]
@@ -31,7 +35,7 @@ class TopicController extends AbstractController
     #[IsGranted('ROLE_USER')]
     public function list(int $parent): Response
     {
-        $topics = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $parent]);
+        $topics = $this->topicManager->getTopicsByParentId($parent);
         return $this->render('topic/index.html.twig', [
             'topics' => $topics,
         ]);
