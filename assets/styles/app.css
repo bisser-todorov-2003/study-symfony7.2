@@ -111,3 +111,8 @@ ul li.head {
     color: white;
     border: 1px solid black;
 }
+
+button.single_button {
+    padding: 5px;
+    background-color: gray;
+}
