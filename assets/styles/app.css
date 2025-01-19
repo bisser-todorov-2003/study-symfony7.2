@@ -73,14 +73,13 @@ ul li {
     grid-template-columns: 10fr 2fr;
     background-color: #DDD;
     border: 1px solid green;
-    width: 100%;
+
     margin-left: 0;
     padding-left: 0;
 }
 
 ul  li  span:nth-of-type(2) {
     text-align: right;
-    margin-left: 10px;
 }
 
 ul  li  span:nth-of-type(3) {
