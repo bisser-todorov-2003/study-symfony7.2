@@ -55,6 +55,7 @@ ul {
 }
 li {
     padding: 10px;
+    padding-left: 0px;
     padding-bottom: 5px;
     margin-bottom: 2px;
 }
