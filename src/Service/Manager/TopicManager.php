@@ -3,6 +3,7 @@
 namespace App\Service\Manager;
 
 use App\DTO\TopicDTO;
+use App\Entity\Resource;
 use App\Entity\Topic;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -37,9 +38,10 @@ class TopicManager
         $resources = $topic->getResources();
 
         if (!empty($resources->toArray())) {
+            /** @var Resource $resource */
             foreach ($resources->toArray() as $resource) {
                 if ($resource->getProgress() == 100) {
-                    $hours += $resource->getDuration();
+                    $hours += $resource->getSize();
                 }
             }
         }
