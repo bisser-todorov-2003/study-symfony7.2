@@ -25,7 +25,12 @@
                     <a href="/resource/add"> | add resource </a>
                     <a href="/topic/add">|  add topic </a>
                 </div>
-                <div class="login"> Hello {{ app.user.email }} </div>
+                <div class="login">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {{ app.user.email }}
+                        <div style="font-weight: bold; margin-top: 5px"> <a href=""> Logout </a> </div>
+                    {% endif %}
+                </div>
             </nav>
         </header>
         <article>

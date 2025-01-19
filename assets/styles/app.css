@@ -27,14 +27,12 @@ a:link, a:visited {
 nav {
     display: grid;
     grid-template-columns: 4fr 2fr 1fr;
-    width: max-content;
-    float: right;
+    margin-left: 10%;
     margin-right: 10%;
-
 }
 
 nav a:link, nav a:visited {
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Forms */
@@ -131,5 +129,9 @@ div.add_buttons {
     height: 40px;
 }
 div.login {
-    display: inline-block;
+    font-family: "Droid Sans Mono Slashed", sans-serif;
+    background-color: lightgray;
+    padding: 20px;
+    font-size: 0.8em;
+
 }
