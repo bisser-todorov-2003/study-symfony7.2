@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2> Started {{ year }} and unfinished  </h2>
+    <h2> Finished {{ year }}</h2>
     <ul class="resource_list">
-        {% for resource in progress %}
+        {% for resource in finish %}
             <li>
                 <span>{{ resource.name }}</span>
                 <span> {{ resource.progress }}%</span>
             </li>
         {% endfor %}
     </ul>
-    <h2> Finished {{ year }}</h2>
+    <h2> Started {{ year }} and unfinished  </h2>
+
     <ul class="resource_list">
-        {% for resource in finish %}
+        {% for resource in progress %}
             <li>
                 <span>{{ resource.name }}</span>
                 <span> {{ resource.progress }}%</span>
