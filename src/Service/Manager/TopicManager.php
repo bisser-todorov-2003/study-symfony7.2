@@ -17,11 +17,14 @@ class TopicManager
     public function getTopicsByParentId(?int $parent): array
     {
         $result = [];
+
         $topics = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $parent]);
+        dump($topics);
         foreach ($topics as $topic) {
             $dto = $this->serializer->denormalize($topic, Topic::class);
             $result[] = $dto;
         }
+        dd($result);
         return $result;
     }
 }
