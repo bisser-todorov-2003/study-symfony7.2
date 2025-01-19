@@ -15,11 +15,6 @@ header {
     margin-bottom: 20px;
 }
 
-h2 {
-    padding-left: 0;
-    margin-left: 0;
-    border: 1px solid red;
-}
 
 a:link, a:visited {
     text-decoration: none;
@@ -102,5 +97,5 @@ h2 {
     font-family: "Droid Sans Mono Slashed", sans-serif;
     font-size: 1.2em;
     margin-top: 35px;
-    padding-left: 3%;
+    padding-left: 0;
 }
