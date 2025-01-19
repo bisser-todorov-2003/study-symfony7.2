@@ -2,7 +2,7 @@
 
 {% block body %}
     <h2> Started {{ year }} and unfinished  </h2>
-    <ul>
+    <ul class="resource_list">
         {% for resource in progress %}
             <li>
                 <span>{{ resource.name }}</span>
@@ -11,7 +11,7 @@
         {% endfor %}
     </ul>
     <h2> Finished {{ year }}</h2>
-    <ul>
+    <ul class="resource_list">
         {% for resource in finish %}
             <li>
                 <span>{{ resource.name }}</span>
@@ -21,7 +21,7 @@
     </ul>
 
     <h2> Started {{ previousYear }} and unfinished </h2>
-    <ul>
+    <ul class="resource_list">
         {% for resource in previousProgress %}
             <li>
                 <span>{{ resource.name }}</span>
@@ -31,7 +31,7 @@
     </ul>
 
     <h2> Finished {{ previousYear }}</h2>
-    <ul>
+    <ul class="resource_list">
         {% for resource in previousFinish %}
             <li>
                 <span>{{ resource.name }}</span>
