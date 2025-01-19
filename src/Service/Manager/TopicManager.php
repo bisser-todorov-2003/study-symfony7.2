@@ -19,6 +19,7 @@ class TopicManager
         $result = [];
         $topics = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $parent]);
         foreach ($topics as $topic) {
+            dd($topic);
             $json = $this->serializer->serialize($topic, 'json');
             dd($json);
         }
