@@ -25,8 +25,14 @@ class TopicManager
             $dto = new TopicDTO();
             $dto->setId($topic->getId());
             $dto->setName($topic->getName());
+            $time = $topic->calculateTime($topic->getId());
             $result[] = $dto;
         }
         return $result;
+    }
+
+    private function calculateTime(Topic $topic): int
+    {
+        dd($topic);
     }
 }
