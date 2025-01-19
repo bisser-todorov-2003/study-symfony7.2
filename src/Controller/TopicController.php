@@ -24,7 +24,7 @@ class TopicController extends AbstractController
     #[IsGranted('ROLE_USER')]
     public function index(): Response
     {
-        $topics = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => 0]);
+        $topics = $this->topicManager->getTopicsByParentId(0);
 
         return $this->render('topic/index.html.twig', [
             'topics' => $topics,
