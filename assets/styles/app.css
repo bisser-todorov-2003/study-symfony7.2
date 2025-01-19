@@ -52,6 +52,7 @@ button{
 }
 ul {
     font-family: sans-serif;
+    margin-left: 0;
 }
 li {
     padding: 10px;
