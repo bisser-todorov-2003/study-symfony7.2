@@ -25,7 +25,7 @@ class TopicManager
             $dto = new TopicDTO();
             $dto->setId($topic->getId());
             $dto->setName($topic->getName());
-            $time = $this->calculateTime($topic->getId());
+            $time = $this->calculateTime($topic);
             $result[] = $dto;
         }
         return $result;
@@ -33,6 +33,6 @@ class TopicManager
 
     private function calculateTime(Topic $topic): int
     {
-        dd($topic);
+        dd($topic->getTopics());
     }
 }
