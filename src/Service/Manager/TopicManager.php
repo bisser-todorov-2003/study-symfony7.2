@@ -36,11 +36,15 @@ class TopicManager
         $hours = 0;
         $resources = $topic->getResources();
 
-if (!empty($resources->toArray())) {
-    dump($resources);
-}
+        if (!empty($resources->toArray())) {
+            foreach ($resources->toArray() as $resource) {
+                if ($resource->getProgress() == 100) {
+                    $hours += $resource->getDuration();
+                }
+            }
+        }
         $children = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $topic->getId()]);
-        dump($children);
+
         if (empty($children)) {
             return $hours;
         }
