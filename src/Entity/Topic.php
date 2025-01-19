@@ -14,7 +14,7 @@ class Topic
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private int $id;
+    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -26,7 +26,7 @@ class Topic
      * @var Collection<int, self>
      */
     #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'parent')]
-    private Collection $topics;
+    private ?Collection $topics;
 
     #[ORM\ManyToOne]
     private ?User $user = null;
@@ -78,7 +78,7 @@ class Topic
     /**
      * @return Collection<int, self>
      */
-    public function getTopics(): Collection
+    public function getTopics(): ?Collection
     {
         return $this->topics;
     }
