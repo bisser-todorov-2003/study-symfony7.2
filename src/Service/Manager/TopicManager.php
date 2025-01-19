@@ -2,6 +2,7 @@
 
 namespace App\Service\Manager;
 
+use App\DTO\TopicDTO;
 use App\Entity\Topic;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -19,11 +20,13 @@ class TopicManager
         $result = [];
         $topics = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $parent]);
         foreach ($topics as $topic) {
-         //   dd($topic);
-            $json = $this->serializer->serialize($topic, 'json');
-            dd($json);
+            // TODO: Entity of type 'App\Entity\Topic' for IDs id(0) was not found
+            // try to use serializer
+            $dto = new TopicDTO();
+            $dto->setId($topic->getId());
+            $dto->setName($topic->getName());
+            $result[] = $dto;
         }
-        dd($result);
         return $result;
     }
 }
