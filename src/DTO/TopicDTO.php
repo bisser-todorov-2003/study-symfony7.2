@@ -6,6 +6,7 @@ class TopicDTO
 {
     public int $id;
     public string $name;
+    public int $duration;
 
     public function getId(): int
     {
@@ -25,5 +26,15 @@ class TopicDTO
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getDuration(): int
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(int $duration): void
+    {
+        $this->duration = $duration;
     }
 }

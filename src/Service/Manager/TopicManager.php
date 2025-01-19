@@ -27,6 +27,7 @@ class TopicManager
             $dto->setId($topic->getId());
             $dto->setName($topic->getName());
             $time = $this->calculateTime($topic);
+            $dto->setDuration($time);
             $result[] = $dto;
         }
         return $result;
@@ -34,6 +35,7 @@ class TopicManager
 
     private function calculateTime(Topic $topic): int
     {
+        // TODO: Refactor this
         $hours = 0;
         $resources = $topic->getResources();
 
@@ -52,7 +54,6 @@ class TopicManager
         }
         foreach ($children as $child) {
             $hours += $this->calculateTime($child);
-            dump($hours);
         }
         return $hours;
     }
