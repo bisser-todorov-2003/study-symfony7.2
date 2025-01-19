@@ -21,6 +21,8 @@ class TopicManager
         $topics = $this->entityManager->getRepository(Topic::class)->findBy(['parent' => $parent]);
         dump($topics);
         foreach ($topics as $topic) {
+            $entity = $this->serializer->normalize($topic, Topic::class);
+            dd($entity);
             $dto = $this->serializer->denormalize($topic, Topic::class);
             $result[] = $dto;
         }
