@@ -16,20 +16,20 @@ class ProgressLogRepository extends ServiceEntityRepository
         parent::__construct($registry, ProgressLog::class);
     }
 
-    //    /**
-    //     * @return ProgressLog[] Returns an array of ProgressLog objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('p.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+        public function otherActivitiesByYear(string $value): array
+        {
+            $start = new \DateTime($value."-01-01");
+            $finish = new \DateTime( $value ."-12-31");
+
+            return $this->createQueryBuilder('p')
+                ->andWhere('p.finishDate < :finish')
+                ->andWhere('p.finishDate > :start')
+                ->setParameter('finish', $finish)
+                ->setParameter('start', $start)
+                ->getQuery()
+                ->getResult()
+            ;
+        }
 
     //    public function findOneBySomeField($value): ?ProgressLog
     //    {

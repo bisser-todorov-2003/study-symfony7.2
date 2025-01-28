@@ -2,6 +2,7 @@
 
 namespace App\Service\Manager;
 
+use App\Entity\ProgressLog;
 use App\Entity\Resource;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -30,7 +31,12 @@ class ResourceManager
 
     public function otherActivitiesByYear(?string $year = null): array
     {
-        
+        if (empty($year)) {
+            $now = new \DateTime();
+            $year = $now->format('Y');
+        }
+        $data = $this->entityManager->getRepository(ProgressLog::class)->otherActivitiesByYear($year);
+        dd($data);
     }
 
     public function allByYear(string $year = '2025'): array
