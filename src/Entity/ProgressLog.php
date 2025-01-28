@@ -14,7 +14,7 @@ class ProgressLog
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name: 'resourceId')]
     private ?int $resourceId = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
