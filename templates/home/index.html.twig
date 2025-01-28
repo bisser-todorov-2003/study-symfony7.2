@@ -23,10 +23,10 @@
 
     <h2> Other activities for this year </h2>
     <ul class="resource_list">
-        {% for resource in otherActivities %}
+        {% for log in otherActivities %}
             <li>
-                <span>{{ resource.name }}</span>
-                <span> {{ resource.progress }}%</span>
+                <span>{{ log.resource.name }}</span>
+                <span> {{ log.resource.progress }}%</span>
             </li>
         {% endfor %}
     </ul>

@@ -32,14 +32,15 @@ class HomeController extends AbstractController
         $previousFinish = $this->resourceManager->finishedByYear($previousYear);
 
         $otherActivities = $this->resourceManager->otherActivitiesByYear();
-dd($otherActivities);
+
         return $this->render('/home/index.html.twig', [
             'progress' => $progress,
             'finish' => $finish,
             'year' => $year,
             'previousYear' => $previousYear,
             'previousProgress' => $previousProgress,
-            'previousFinish' => $previousFinish
+            'previousFinish' => $previousFinish,
+            'otherActivities' => $otherActivities,
         ]);
     }
 
