@@ -24,6 +24,7 @@ class ProgressLog
     private ?\DateTimeInterface $finish = null;
 
     #[ORM\ManyToOne(inversedBy: 'progressLogs')]
+    #[ORM\JoinColumn(nullable: false, name: 'resourceId')]
     private ?Resource $resource = null;
 
     public function getId(): ?int
