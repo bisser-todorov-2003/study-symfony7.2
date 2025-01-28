@@ -101,7 +101,9 @@ h2 {
 }
 
 ul.resource_list {
-    border: 1px solid black;
+    border: 1px solid gray;
+    border-radius: 20px;
+
 }
 ul.resource_list li {
     background-color: white;
