@@ -107,7 +107,7 @@ ul.resource_list {
 }
 ul.resource_list li {
     background-color: white;
-
+    border: none;
 
 }
 
