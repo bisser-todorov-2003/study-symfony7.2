@@ -22,8 +22,8 @@ class ProgressLogRepository extends ServiceEntityRepository
             $finish = new \DateTime( $value ."-12-31");
 
             return $this->createQueryBuilder('p')
-                ->andWhere('p.finishDate < :finish')
-                ->andWhere('p.finishDate > :start')
+                ->andWhere('p.finish < :finish')
+                ->andWhere('p.finish > :start')
                 ->setParameter('finish', $finish)
                 ->setParameter('start', $start)
                 ->getQuery()
