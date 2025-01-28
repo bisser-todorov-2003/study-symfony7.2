@@ -108,8 +108,6 @@ ul.resource_list {
 ul.resource_list li {
     background-color: unset;
     border: none;
-    border-bottom: 1px solid #BBB;
-
 }
 
 ul li.head {
