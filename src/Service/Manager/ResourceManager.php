@@ -28,6 +28,11 @@ class ResourceManager
         return $this->entityManager->getRepository(Resource::class)->findByFinished($year);
     }
 
+    public function otherActivitiesByYear(?string $year = null): array
+    {
+        
+    }
+
     public function allByYear(string $year = '2025'): array
     {
 

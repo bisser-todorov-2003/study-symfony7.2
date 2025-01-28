@@ -21,6 +21,16 @@
         {% endfor %}
     </ul>
 
+    <h2> Other activities for this year </h2>
+    <ul class="resource_list">
+        {% for resource in otherActivities %}
+            <li>
+                <span>{{ resource.name }}</span>
+                <span> {{ resource.progress }}%</span>
+            </li>
+        {% endfor %}
+    </ul>
+
     <h2> Started {{ previousYear }} and unfinished </h2>
     <ul class="resource_list">
         {% for resource in previousProgress %}
