@@ -36,7 +36,7 @@ class ResourceManager
             $year = $now->format('Y');
         }
         $data = $this->entityManager->getRepository(ProgressLog::class)->otherActivitiesByYear($year);
-        dd($data);
+        dd($data[0]->getResource());
     }
 
     public function allByYear(string $year = '2025'): array
