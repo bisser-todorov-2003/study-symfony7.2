@@ -102,13 +102,13 @@ h2 {
 
 ul.resource_list {
     border: 1px solid gray;
-    border-radius: 20px;
+    border-radius: 10px;
 
 }
 ul.resource_list li {
     background-color: white;
 
-    border-bottom: 1px dotted gray;
+
 }
 
 ul li.head {
