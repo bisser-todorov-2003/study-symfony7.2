@@ -13,7 +13,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class HomeController extends AbstractController
 {
     public function __construct(private readonly ResourceManager $resourceManager)
-    { }
+    {}
 
     #[IsGranted('ROLE_USER')]
     #[Route('/', name: 'app_home')]
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
         $previousProgress = $this->resourceManager->inProgressByYear($previousYear);
         $previousFinish = $this->resourceManager->finishedByYear($previousYear);
 
-        $otherActivities = '';
+        $otherActivities = $this->resourceManager->otherActivitiesByYear();
 
         return $this->render('/home/index.html.twig', [
             'progress' => $progress,
