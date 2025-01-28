@@ -22,6 +22,7 @@ class ProgressLogRepository extends ServiceEntityRepository
             $finish = new \DateTime( $value ."-12-31");
 
             return $this->createQueryBuilder('p')
+                ->leftJoin('p.user', 'u')
                 ->andWhere('p.finish < :finish')
                 ->andWhere('p.finish > :start')
                 ->setParameter('finish', $finish)

@@ -23,6 +23,9 @@ class ProgressLog
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $finish = null;
 
+    #[ORM\ManyToOne(inversedBy: 'progressLogs')]
+    private ?Resource $resource = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class ProgressLog
     public function setFinish(\DateTimeInterface $finish): static
     {
         $this->finish = $finish;
+
+        return $this;
+    }
+
+    public function getResource(): ?Resource
+    {
+        return $this->resource;
+    }
+
+    public function setResource(?Resource $resource): static
+    {
+        $this->resource = $resource;
 
         return $this;
     }

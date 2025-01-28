@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ResourceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -44,6 +46,17 @@ class Resource
 
     #[ORM\Column(nullable: true)]
     private ?int $progress = null;
+
+    /**
+     * @var Collection<int, ProgressLog>
+     */
+    #[ORM\OneToMany(targetEntity: ProgressLog::class, mappedBy: 'resource')]
+    private Collection $progressLogs;
+
+    public function __construct()
+    {
+        $this->progressLogs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -166,6 +179,36 @@ class Resource
     public function setProgress(?int $progress): static
     {
         $this->progress = $progress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ProgressLog>
+     */
+    public function getProgressLogs(): Collection
+    {
+        return $this->progressLogs;
+    }
+
+    public function addProgressLog(ProgressLog $progressLog): static
+    {
+        if (!$this->progressLogs->contains($progressLog)) {
+            $this->progressLogs->add($progressLog);
+            $progressLog->setResource($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgressLog(ProgressLog $progressLog): static
+    {
+        if ($this->progressLogs->removeElement($progressLog)) {
+            // set the owning side to null (unless already changed)
+            if ($progressLog->getResource() === $this) {
+                $progressLog->setResource(null);
+            }
+        }
 
         return $this;
     }
