@@ -22,7 +22,7 @@ class ProgressLogRepository extends ServiceEntityRepository
             $start = new \DateTime($value."-01-01");
             $finish = new \DateTime( $value ."-12-31");
             $before = new \DateTime( ((int)$value - 2) ."-01-01");
-
+dd($before);
             return $this->createQueryBuilder('p')
                 ->leftJoin('p.resource', 'r')
                 ->andWhere('p.finish < :finish')
