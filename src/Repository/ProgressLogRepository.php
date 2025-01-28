@@ -16,33 +16,23 @@ class ProgressLogRepository extends ServiceEntityRepository
         parent::__construct($registry, ProgressLog::class);
     }
 
-        public function otherActivitiesByYear(string $value): array
-        {
+    public function otherActivitiesByYear(string $value): array
+    {
+        $start = new \DateTime($value."-01-01");
+        $finish = new \DateTime( $value ."-12-31");
+        $before = new \DateTime( ((int)$value - 1) ."-01-01");
 
-            $start = new \DateTime($value."-01-01");
-            $finish = new \DateTime( $value ."-12-31");
-            $before = new \DateTime( ((int)$value - 1) ."-01-01");
-
-            return $this->createQueryBuilder('p')
-                ->leftJoin('p.resource', 'r')
-                ->andWhere('p.finish < :finish')
-                ->andWhere('p.finish > :start')
-                ->andWhere('r.startDate < :year')
-                ->setParameter('finish', $finish)
-                ->setParameter('start', $start)
-                ->setParameter('year', $before)
-                ->getQuery()
-                ->getResult()
-            ;
-        }
-
-    //    public function findOneBySomeField($value): ?ProgressLog
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.resource', 'r')
+            ->andWhere('p.finish < :finish')
+            ->andWhere('p.finish > :start')
+            ->andWhere('r.startDate < :year')
+            ->setParameter('finish', $finish)
+            ->setParameter('start', $start)
+            ->setParameter('year', $before)
+            ->groupBy('r.id')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
